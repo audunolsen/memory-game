@@ -23,7 +23,7 @@ const people = [
   'audun-2-b'
 ].sort(() => Math.random() - 0.5);
 
-const Card({ person, turned, completed, clickCb }) => (
+const Card = ({ person, turned, completed, clickCb }) => (
   <div
     onClick={() => clickCb(person)}
     style={{'--bg': `url("./images/${person.slice(0, -2)}.png")`}}
