@@ -69,6 +69,7 @@ body {
 
 .card::after {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   background: #37393d;
 }
 
