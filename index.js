@@ -56,8 +56,16 @@ function Game() {
     setSelectedCards(cards);
   }
 
+  const [appHeight, setAppHeight] = React.useState(document.querySelector('#app').clientHeight)
+  React.useEffect(() => {
+    window.addEventListener('resize', () => setAppHeight(document.querySelector('#app').clientHeight));
+  }, [])
+  const wrapperWidth = React.useMemo(() => {
+    const [bgWidth, bgHeight] = ['--bg-width', '--bg-height'].map(p => Number(getComputedStyle(document.documentElement).getPropertyValue(p)))
+    return (bgWidth / bgHeight) * document.querySelector('#app').clientHeight 
+  }, [appHeight])
   return (
-    <div className="game-wrapper">
+    <div className="game-wrapper" style={{'width': `${wrapperWidth}px`}}>
 
       {people.map(p =>
         <Card
@@ -65,6 +73,7 @@ function Game() {
           clickCb={handleClick}
           turned={selectedCards.includes(p)}
           completed={completedCards.includes(p)}
+          key={p}
         />
       )}
 

@@ -1,7 +1,11 @@
 * { box-sizing: border-box; }
 
+:root{
+  --bg-height: 983;
+  --bg-width: 853;
+}
+
 body {
-  height: 100vh;
   margin: 0;
   background: #202227;
   color: white;
@@ -13,11 +17,14 @@ body {
   font-weight: 200;
 }
 
+#app{
+  height: 100vh;
+  max-height: calc(100vw * (var(--bg-height)/var(--bg-width)));
+}
+
 .game-wrapper {
-  /* 1706 × 1966 */
   padding: 5px;
-  width: 853px;
-  height: 983px;
+  height: 100%;
   display: grid;
   grid-gap: 8px;
   grid-template-columns: repeat(5, 1fr);
