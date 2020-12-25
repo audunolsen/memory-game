@@ -19,7 +19,7 @@ body {
 
 #app{
   height: 100vh;
-  max-height: calc(100vw * (var(--bg-height)/var(--bg-width)));
+  max-height: min(calc(100vw * (var(--bg-height)/var(--bg-width))), calc(var(--bg-height) * 1px));
 }
 
 .game-wrapper {

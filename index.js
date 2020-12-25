@@ -41,7 +41,10 @@ function Game() {
   const [completedCards, setCompletedCards] = React.useState([]);
 
   const handleClick = (person) => {
-
+    if(selectedCards.includes(person)){
+      return;
+    }
+    
     const cards = [...selectedCards, person];
 
     if (cards.length == 2) {
